@@ -55,7 +55,7 @@ export const bajaPaciente = async (req, res) => {
 
 export const editarDatosPaciente = async (req, res) => {
   try {
-    await Paciente.findByIdAndUpdate(req.params.id);
+    await Paciente.findByIdAndUpdate(req.params.id, req.body);
     res.status(200).json({
       mensaje: "Se actualizaron los datos correctamente",
     });
