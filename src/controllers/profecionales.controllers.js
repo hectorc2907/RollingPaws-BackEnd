@@ -12,7 +12,7 @@ export const obtenerProfesional = async (req, res) => {
   }
 };
 
-export const obtenerProfesionales = async (res) => {
+export const obtenerProfesionales = async (req, res) => {
   try {
     const profesionales = await Professional.find();
     res.status(200).json(profesionales);
