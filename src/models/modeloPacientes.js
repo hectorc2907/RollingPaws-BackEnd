@@ -21,8 +21,8 @@ const pacientesSchema = new Schema({
   },
   telefonoDuenio: {
     type: Number,
-    minLength: 9,
-    maxLength: 9,
+    minLength: 10,
+    maxLength: 10,
     required: true,
   },
   direccionDuenio: {
