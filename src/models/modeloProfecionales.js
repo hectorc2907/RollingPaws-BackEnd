@@ -1,30 +1,52 @@
 import { Schema, model } from "mongoose";
 
-const profesionalesSchema = new Schema({
-  professionalName: {
+const pacientesSchema = new Schema({
+  nombreDuenio: {
     type: String,
     minLength: 2,
     maxLength: 30,
     required: true,
   },
-  professionalLastName: {
+  apellidoDuenio: {
     type: String,
     minLength: 2,
     maxLength: 30,
     required: true,
   },
-  professionalProfession: {
+  emailDuenio: {
     type: String,
     minLength: 2,
     maxLength: 30,
     required: true,
   },
-  professionalImage: {
+  telefonoDuenio: {
+    type: Number,
+    minLength: 9,
+    maxLength: 9,
+    required: true,
+  },
+  direccionDuenio: {
+    type: String,
+    minLength: 2,
+    maxLength: 40,
+    required: true,
+  },
+  nombreMascota: {
+    type: String,
+    minLength: 2,
+    maxLength: 20,
+    required: true,
+  },
+  especieMascota: {
+    type: String,
+    required: true,
+  },
+  razaMascota: {
     type: String,
     required: true,
   },
 });
 
-const Professional = model("professional", profesionalesSchema);
+const Paciente = model("pacientes", pacientesSchema);
 
-export default Professional;
+export default Paciente;
