@@ -55,7 +55,7 @@ const validarPaciente = [
     .withMessage("La raza de la mascota es obligatoria")
     .isIn([
       "labrador",
-      "bulldog",
+      "dogo",
       "golden",
       "pastor",
       "caniche",
@@ -77,7 +77,11 @@ const validarPaciente = [
       "capibaras",
       "conejo",
       "otros",
-    ]),
+    ])
+    .withMessage("La raza no es correcta"),
+  (req, res, next) => {
+    resultadoValidacion(req, res, next);
+  },
 ];
 
 export default validarPaciente;
