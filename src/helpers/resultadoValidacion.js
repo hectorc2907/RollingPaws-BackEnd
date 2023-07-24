@@ -9,3 +9,5 @@ const resultadoValidacion = (req, res, next) => {
   }
   next();
 };
+
+export default resultadoValidacion;
