@@ -24,7 +24,7 @@ const turnosSchema = new Schema({
   detalleConsulta: {
     type: String,
     minLength: 2,
-    maxLength: 30,
+    maxLength: 5000,
     required: true,
   },
 });
