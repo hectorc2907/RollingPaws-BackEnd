@@ -38,16 +38,31 @@ export const crearTurnos = async (req, res) => {
     });
   }
 };
+
 export const bajaTurnos = async (req, res) => {
   try {
-    await Turnos.findByIdAndUpdate(req.params.id);
+    await Turnos.findByIdAndDelete(req.params.id);
     res.status(200).json({
-      mensaje: "El turno se actualizo correctamente",
+      mensaje: "El turno se elimino correctamente",
     });
   } catch (error) {
     console.log(error);
     res.status(404).json({
       mensaje: "Error al eliminar el turno",
+    });
+  }
+};
+
+export const editarDatosTurno = async (req, res) => {
+  try {
+    await Turnos.findByIdAndUpdate(req.params.id, req.body);
+    res.status(200).json({
+      mensaje: "El turno se actualizo correctamente",
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(400).json({
+      mensaje: "No se pudo actualizar los datos",
     });
   }
 };
