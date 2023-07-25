@@ -38,3 +38,16 @@ export const crearTurnos = async (req, res) => {
     });
   }
 };
+export const bajaTurnos = async (req, res) => {
+  try {
+    await Turnos.findByIdAndUpdate(req.params.id);
+    res.status(200).json({
+      mensaje: "El turno se actualizo correctamente",
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(404).json({
+      mensaje: "Error al eliminar el turno",
+    });
+  }
+};
