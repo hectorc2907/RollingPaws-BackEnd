@@ -14,7 +14,7 @@ const turnosSchema = new Schema({
     required: true,
   },
   fechaConsulta: {
-    type: Date,
+    type: String,
     required: true,
   },
   horaConsulta: {

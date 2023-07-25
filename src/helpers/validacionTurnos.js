@@ -5,7 +5,7 @@ const validarTurno = [
   check("nombreMascota")
     .notEmpty()
     .withMessage("La especie es obligatoria")
-    .isIn(["perro", "gato", "ave", "roedor", "otro"])
+    .isLength({ min: 2, max: 20 })
     .withMessage("La especie no es correcta"),
   check("nombreVeterinario")
     .notEmpty()
