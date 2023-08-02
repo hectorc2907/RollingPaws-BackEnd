@@ -48,36 +48,12 @@ const validarPaciente = [
   check("especieMascota")
     .notEmpty()
     .withMessage("La especie es obligatoria")
-    .isIn(["perro", "gato", "ave", "roedor", "otro"])
+    .isIn(["Perro", "Gato", "Ave", "Roedor", "Otro"])
     .withMessage("La especie no es correcta"),
   check("razaMascota")
     .notEmpty()
     .withMessage("La raza de la mascota es obligatoria")
-    .isIn([
-      "labrador",
-      "dogo",
-      "golden",
-      "pastor",
-      "caniche",
-      "beagle",
-      "persa",
-      "siames",
-      "angora",
-      "siberiano",
-      "azul ruso",
-      "bengali",
-      "periquito",
-      "canario",
-      "cacatua",
-      "cotorra",
-      "diamantes",
-      "hamster",
-      "conejillo",
-      "jerbos",
-      "capibaras",
-      "conejo",
-      "otros",
-    ])
+    .isLength({ min: 2, max: 20 })
     .withMessage("La raza no es correcta"),
   (req, res, next) => {
     resultadoValidacion(req, res, next);
