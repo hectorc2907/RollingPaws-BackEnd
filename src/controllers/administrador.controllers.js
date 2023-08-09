@@ -1,5 +1,5 @@
 import Usuario from "../models/modeloAdministrador";
-import bcrypt, { hashSync } from "bcrypt";
+import bcrypt from "bcrypt";
 
 export const obtenerAdministrador = async (req, res) => {
   try {

@@ -6,6 +6,7 @@ import "dotenv/config";
 import "./src/database/dbConnection";
 import pacientesRouter from "./src/routes/pacientes.routes";
 import turnosRouter from "./src/routes/turnos.routes";
+import administradorRouter from "./src/routes/administrador.routes";
 
 const app = express();
 
@@ -21,3 +22,4 @@ app.use(express.static(path.join(__dirname, "/public")));
 
 app.use("/veterinaria/pac", pacientesRouter);
 app.use("/veterinaria/tur", turnosRouter);
+app.use("/veterinaria/adm", administradorRouter);
