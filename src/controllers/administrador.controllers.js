@@ -30,8 +30,8 @@ export const crearAdministrador = async (req, res) => {
       });
     }
     const administradorNuevo = new Usuario(req.body);
-    const salt = bcrypt.genSaltSync(10);
-    administradorNuevo.password = bcrypt.hashSync(req.body.password, salt);
+    // const salt = bcrypt.genSaltSync(10);
+    // administradorNuevo.password = bcrypt.hashSync(req.body.password, salt);
     await administradorNuevo.save();
     res.status(201).json({
       mensaje: "El administrador se creo correctamente",
@@ -51,19 +51,23 @@ export const login = async (req, res) => {
         mensaje: "Correo o Contraseña Invalida",
       });
     }
-    const passwordValido = bcrypt.compareSync(
-      req.body.password,
-      administrador.password
-    );
+    // const passwordValido = bcrypt.compareSync(
+    //   req.body.password,
+    //   administrador.password
+    // );
     if (!passwordValido) {
       return res.status(400).json({
         mensaje: "Correo o Contraseña Invalida",
       });
     }
+    res.status(200).json({
+      mensaje: "El usuario es correcto",
+      nombreUsuario: administrador.nombreUsuario,
+    });
   } catch (error) {
     console.log(error);
     res.status(404).json({
-        mensaje:"Error al intentar loguear el Administrador"
-    })
+      mensaje: "Error al intentar loguear el Administrador",
+    });
   }
 };
