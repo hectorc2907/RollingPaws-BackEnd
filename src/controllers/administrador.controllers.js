@@ -6,7 +6,6 @@ export const obtenerAdministrador = async (req, res) => {
     const administrador = await Usuario.findById(req.params.id);
     res.status(200).json(administrador);
   } catch (error) {
-    console.log(error);
     res.status(404).json({ mensaje: "Error al buscar el administrador" });
   }
 };
@@ -16,7 +15,6 @@ export const obtenerAdministradores = async (req, res) => {
     const administrador = await Usuario.find();
     res.status(200).json(administrador);
   } catch (error) {
-    console.log(error);
     res.status(404).json({ mensaje: "Error al buscar administradores" });
   }
 };
@@ -51,10 +49,6 @@ export const login = async (req, res) => {
         mensaje: "Correo o Contraseña Invalida",
       });
     }
-    // const passwordValido = bcrypt.compareSync(
-    //   req.body.password,
-    //   administrador.password
-    // );
     if (!passwordValido) {
       return res.status(400).json({
         mensaje: "Correo o Contraseña Invalida",
@@ -65,7 +59,6 @@ export const login = async (req, res) => {
       nombreUsuario: administrador.nombreUsuario,
     });
   } catch (error) {
-    console.log(error);
     res.status(404).json({
       mensaje: "Error al intentar loguear el Administrador",
     });
